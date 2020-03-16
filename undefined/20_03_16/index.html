@@ -12,7 +12,7 @@
 
 
 
-<title>Hello World | Tian Xu&#39;s Blog</title>
+<title>我的第一篇博客 | Tian Xu&#39;s Blog</title>
 
 
 
@@ -107,73 +107,11 @@
             <div class="container">
     
     
-        <div class="post-toc">
-    <div class="tocbot-list">
-    </div>
-    <div class="tocbot-list-menu">
-        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
-        <a onclick="go_top()">Back to top</a>
-        <a onclick="go_bottom()">Go to bottom</a>
-    </div>
-</div>
-
-<script>
-    document.ready(
-        function () {
-            tocbot.init({
-                tocSelector: '.tocbot-list',
-                contentSelector: '.post-content',
-                headingSelector: 'h1, h2, h3, h4, h5',
-                collapseDepth: 1,
-                orderedList: false,
-                scrollSmooth: true,
-            })
-        }
-    )
-
-    function expand_toc() {
-        var b = document.querySelector(".tocbot-toc-expand");
-        tocbot.init({
-            tocSelector: '.tocbot-list',
-            contentSelector: '.post-content',
-            headingSelector: 'h1, h2, h3, h4, h5',
-            collapseDepth: 6,
-            orderedList: false,
-            scrollSmooth: true,
-        });
-        b.setAttribute("onclick", "collapse_toc()");
-        b.innerHTML = "Collapse all"
-    }
-
-    function collapse_toc() {
-        var b = document.querySelector(".tocbot-toc-expand");
-        tocbot.init({
-            tocSelector: '.tocbot-list',
-            contentSelector: '.post-content',
-            headingSelector: 'h1, h2, h3, h4, h5',
-            collapseDepth: 1,
-            orderedList: false,
-            scrollSmooth: true,
-        });
-        b.setAttribute("onclick", "expand_toc()");
-        b.innerHTML = "Expand all"
-    }
-
-    function go_top() {
-        window.scrollTo(0, 0);
-    }
-
-    function go_bottom() {
-        window.scrollTo(0, document.body.scrollHeight);
-    }
-
-</script>
-    
 
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">Hello World</h1>
+            <h1 class="post-title">我的第一篇博客</h1>
             
                 <div class="post-meta">
                     
@@ -182,7 +120,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">March 16, 2020&nbsp;&nbsp;12:36:04</a>
+                        Date: <a href="#">March 16, 2020&nbsp;&nbsp;13:38:36</a>
                         </span>
                     
                     
@@ -191,19 +129,15 @@
         </header>
 
         <div class="post-content">
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1336631279&auto=1&height=66"></iframe>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<p>时隔多日，我终于搭建了一个真正属于自己的Blog，这是我的第一篇博客，越长大，越来越多事情要做，每天都好多事情要去做，可是最后回头发现，也没有什么大的进展。</p>
+<p>我大概是2014年开始密切的接触电脑，初二，跟着学校学习信息学奥赛，我第一次接触的编程语言是Pascal，一个比较古老的语言，以begin开始…… end结束，可我从来都不是个安分的孩子，别人在刷题敲代码的时候，我偷偷的搭建了个网站，当时用的荷兰的域名，有效期是一年，记得很清楚那个域名是<a href="http://monyan.tk/" target="_blank" rel="noopener">http://monyan.tk</a> 18年的时候，停用了。</p>
+<p>很遗憾的是我17年过后，从noip中退役了，不过这可能是个幸运的决定，否则贪玩的我真的可能连山中医都考不上，我觉得自己是真的笨，别人可以理解的算法，我真的是头大。</p>
+<p>18年自主招生，北林，西南大学，哈工程，山财，青大，山科……这些学校我一个计算机专业都没选，我再也不想这么头大了，让我觉得更遗憾的是这么多学校我最终只通过了一所学校——山东科技大学，最后我觉得我好愧疚啊，我竟然高考没考过自主招生线，好悲剧QwQ，好多人希望我复读，可能在某些重要的时刻只能自己做决定，最后我爸爸问了我一句，你想复读吗？我不想回去复读了，就这样吧，他建议我学医生，我说我不太喜欢，不过也比以后当程序猿好，在我研究如何报志愿的时候我发现我的分好尴尬，一本上不了，二本还不那么甘心，而医生这些专业，早就和我无缘了。</p>
+<p>我想报远一点的志愿，去外省吧，我爸又说了，你一定会后悔的。我说，我就没后悔过，后悔没用。他说，那你自己考虑清楚，也考虑一下我们的年龄。最后，一是觉得确实要学会负责任了，再就是，我如果分高的话去个好大学，远近都不是问题，可这个尴尬的高考成绩，外省更没有适合我的大学。</p>
+<p>最后在这个互联网，大数据的背景下，我报着可以修双学位的心态选了医学院校的数据科学与大数据技术，来自沂蒙革命老区的山娃娃终于接触到了大数据。</p>
+<p>再次和计算机杠上了⚠️……（未完待续 To be continue…）</p>
 
         </div>
 
@@ -218,7 +152,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="http://tianxu.top/:'blog'/hello-world/">http://tianxu.top/:'blog'/hello-world/</a></span>
+                        <span><a href="http://tianxu.top/undefined/20_03_16/">http://tianxu.top/undefined/20_03_16/</a></span>
                     </p>
                 
                 
@@ -241,6 +175,10 @@
                 <span>Tag(s):</span>
                 <span class="tag">
                     
+                    
+                        <a href="/tags/%E9%9A%8F%E7%AC%94/"># 随笔</a>
+                    
+                        
                 </span>
             </div>
             <div>
@@ -251,8 +189,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/:'blog'/20_03_16/">我的第一篇博客</a>
             
+            <a class="next" rel="next" href="/undefined/hello-world/">Hello World</a>
             
         </section>
 
