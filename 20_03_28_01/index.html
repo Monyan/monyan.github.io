@@ -12,7 +12,7 @@
 
 
 
-<title>Linux文件与目录类常用命令 | Tian Xu&#39;s Blog</title>
+<title>Linux系统的文件操作 | Tian Xu&#39;s Blog</title>
 
 
 
@@ -111,7 +111,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">Linux文件与目录类常用命令</h1>
+            <h1 class="post-title">Linux系统的文件操作</h1>
             
                 <div class="post-meta">
                     
@@ -120,7 +120,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">三月 19, 2020&nbsp;&nbsp;13:50:20</a>
+                        Date: <a href="#">三月 28, 2020&nbsp;&nbsp;9:48:57</a>
                         </span>
                     
                     
@@ -136,62 +136,73 @@
         </header>
 
         <div class="post-content">
-            <p><strong>J-Linux&amp;Shell-W4</strong></p>
-<p>Linux文件与目录类常用命令（共10分）</p>
-<p><strong>一、</strong>  <strong>判断题（共4题，每题0.25分）</strong></p>
+            <p><strong>J-Linux&amp;Shell-W5</strong></p>
+<p>文件操作（共10分）</p>
+<p>一、 判断题（共4题，每题0.25分）</p>
 <ol>
-<li><p>mv为移动对象的命令。（√）</p>
+<li><p>系统中有一个文件的文件名为aaa.txt，那么这个文件的扩展名为txt。（ × ）</p>
 </li>
-<li><p>ln为复制对象的命令。（×）</p>
-<p><code>复制的命令为：cp</code></p>
+<li><p>假设当前工作区中有个文件的文件名为x11，文件内容也为x11，那么在本工作区使用命令grep -v [0-9] x11无法抓出这一行。（ √ ）</p>
 </li>
-<li><p>ls-a可以起到查询目录显示隐藏文件的作用。（×）</p>
-<p><code>注意命令和 [选项]之间要有空格</code></p>
+<li><p>file命令是用来展示文件的统计信息的。（ × ）</p>
 </li>
-<li><p>../etc路径为相对路径。（√）</p>
+<li><p>wc命令是用来查询文件类型的。（×）</p>
 </li>
 </ol>
-<p><strong>二、</strong>  <strong>单项选择题（共3题，每题0.5分）</strong></p>
+<p>二、 单项选择题（共3题，每题0.5分）</p>
 <ol>
-<li><p>expr 2+5命令的运行结果是（B）</p>
-<p>A.报错，无法执行   B.2+5   C.7   D.25</p>
-<p><code>如果输入expr 2 + 5 结果就是7 也是空格的问题</code></p>
+<li>linux操作系统的文件名最大长度为（A）</li>
+</ol>
+<p>​       A.2^8-1    B.2^4-1  C.2^16-1   D.2^32-1</p>
+<ol start="2">
+<li>关于more命令，叙述错误的是（D）</li>
+</ol>
+<p>​       A.more可以将长文件内容从头开始依次展示</p>
+<p>​       B.more可以将长文件内容按照屏幕大小分屏展示</p>
+<p>​       C.more一个长文件以后点击空格为翻页点击回车为翻行</p>
+<p>​       D.more命令已经被翻上去的内容不可以回看查询</p>
+<ol start="3">
+<li>下列描述正确的是（D）</li>
+</ol>
+<p>​       A.正则表达式中的与系统通配符的代表的含义一样。</p>
+<p>​       B.[0-9]代表0-9这10个字符</p>
+<p>​       C.{2}代表2出现了2次</p>
+<p>​       D.以上都错误</p>
+<p>三、 不定项选择题（共2题，每题1分）</p>
+<ol>
+<li>下列命令可以独立使用达到查看文件的效果的是（ACD）</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A.vi      B.echo      C.cat      D.more</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>下列命令可以独立使用达到编辑文件的效果的是（A）</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A.vi      B.echo      C.cat      D.more</span><br></pre></td></tr></table></figure>
+
+<p>四、 填空题（共2空，每空0.5分）</p>
+<ol>
+<li><p>系统中能够修改文件修改时间信息的命令与选项的组合是<code>touch -d</code>。</p>
 </li>
-<li><p>创建符号链接的方式是（D）</p>
-<p>A.ls -s  B.ls  C.ln  D.ln -s</p>
-</li>
-<li><p>能够查看当前工作区的完整绝对路径的命令是（B）</p>
-<p> A.ls  B.pwd  C.path  D.cd</p>
+<li><p>linux操作系统可有形式上的<code>文件扩展名</code>，但系统不将其作为区分文件类型的依据，与windows系统不同。</p>
 </li>
 </ol>
-<p><strong>三、</strong>  <strong>不定项选择题（共2题，每题1分）</strong></p>
+<p>五、 问答题（共1题，4.5分）</p>
 <ol>
-<li><p>能够起到对源文件进行改名的命令有（B）</p>
-<p>A.cp   B.mv   C.ls   D.rm</p>
-</li>
-<li><p>关于rm-rf命令的说法正确的是（D）</p>
-<p>A.可以删除非空目录</p>
-<p>B.在有权限的前提下可以删除非空目录</p>
-<p>C.递归的删除目录</p>
-<p>D.报错，无法执行</p>
-<p><code>空格！！！！！</code></p>
-</li>
+<li>请描述一下cat、more、less、head和tail这几个查看文件命令的区别。</li>
 </ol>
-<p><strong>四、</strong>  <strong>填空题（共3空，每空1分）</strong></p>
-<ol>
-<li><p>linux操作系统中代表本级目录与上级目录的符号分别是 <code>.</code>、<code>..</code>。</p>
+<ul>
+<li>cat命令连接文件并打印到标准输出设备上，cat经常用来显示文件的内容，用于较小文件。</li>
+</ul>
+<ul>
+<li><p>more命令是一个基于vi编辑器文本过滤器，它以全屏幕的方式按页显示文本文件的内容，具有分屏显示的功能。</p>
 </li>
-<li><p>linux操作系统中的路径，以<code>/</code> 为开头的是绝对路径写法。</p>
+<li><p>less命令的作用与more十分相似，都可以用来浏览文字档案的内容，less支持pagedown 和pageup翻行，而且可以实现特定关键字查询。</p>
 </li>
-</ol>
-<p><strong>五、</strong>  <strong>问答题（共1题，每题2.5分）</strong></p>
-<ol>
-<li><p>简述一下软连接与硬连接的区别与联系。</p>
-<p>硬链接：<br>1）具有相同inode节点号的多个文件是互为硬链接文件<br>2）删除硬链接文件或者删除源文件人任意之一，文件实体并被删除<br>3）只有删除源文件及所用对应的硬链接文件，文件实体才会被删除<br>4）当所用的硬链接文件及文件源文件删除后，在存放的数会占用这个文件的空间，或者磁盘fsck检查的时候，删除的数据也会被系统回收（删除要谨慎需要多测试）<br>5）硬链接文件就是文件的另外一个入口（相当于超时的其前门、后门一样）<br>6）可以通过给文件设置硬链接文件，来防止重要文件被误删<br>7）通过执行命令“ln 源文件 硬链接文件”，即可完成创建硬链接<br>8）硬链接是普通文件可以用rm 命令删除<br>9）对静态文件（没有进程正在调用的文件）来讲，对应硬链接数为0（i_link），文件被删除。</p>
-<p>软链接：</p>
-<p>1）软连接类似Windows的快捷方式（可以通过readliak 查看指向）<br>2）软连接类似一个文件，里面存放的是文件的路径，指向文件实体<br>3）删除文件，软连接文件依然存在，但是无法访问源文件路径<br>4）失效的时候一般是白字红底闪烁提示。<br>5）执行命令“ln -s 源文件 软连接文件”。即可完成软连接的创建<br>6）软连接和源文件是不同类型的文件，也是不同的文件。inode号也是不同<br>7）删除软连接文件可以rm命令</p>
+<li><p>head命令用于显示文件的开头的内容。在默认情况下，head命令显示文件的头10行内容。</p>
 </li>
-</ol>
+<li><p>tail命令用于输入文件中的尾部内容。tail命令默认在屏幕上显示指定文件的末尾10行。可用于动态日志监视。</p>
+</li>
+</ul>
 
         </div>
 
@@ -206,7 +217,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="http://tianxu.top/20_03_19_02/">http://tianxu.top/20_03_19_02/</a></span>
+                        <span><a href="http://tianxu.top/20_03_28_01/">http://tianxu.top/20_03_28_01/</a></span>
                     </p>
                 
                 
@@ -243,10 +254,10 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/20_03_28_01/">Linux系统的文件操作</a>
+                <a class="prev" rel="prev" href="/20_03_08_02/">Linux文件操作上机</a>
             
             
-            <a class="next" rel="next" href="/20_03_19/">Linux系统文件与目录基本操作</a>
+            <a class="next" rel="next" href="/20_03_19_02/">Linux文件与目录类常用命令</a>
             
         </section>
 
