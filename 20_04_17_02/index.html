@@ -12,7 +12,7 @@
 
 
 
-<title>Linux 之Vi编辑器练习（上） | Tian Xu&#39;s Blog</title>
+<title>article | Tian Xu&#39;s Blog</title>
 
 
 
@@ -111,7 +111,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">Linux 之Vi编辑器练习（上）</h1>
+            <h1 class="post-title">article</h1>
             
                 <div class="post-meta">
                     
@@ -120,7 +120,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">四月 10, 2020&nbsp;&nbsp;16:27:31</a>
+                        Date: <a href="#">四月 17, 2020&nbsp;&nbsp;11:39:24</a>
                         </span>
                     
                     
@@ -136,56 +136,57 @@
         </header>
 
         <div class="post-content">
-            <p><strong>J-Linux&amp;Shell-W7</strong>  <strong>Vi</strong>  <strong>（上）</strong></p>
-<p>一、判断题</p>
+            <p><strong>J-Linux&amp;Shell-W11</strong> <strong>Shell程序设计（中）</strong></p>
+<p><strong>一、</strong>  <strong>判断题</strong></p>
 <ol>
-<li><p>插入模式不是vi的工作模式之一。( × )</p>
+<li><p>Shell程序中字符串的连接可以直接连接。（√）</p>
 </li>
-<li><p>vi命令模式中a是从光标所在位置后面开始新增内容。( √ )</p>
+<li><p>有双引号扩起来的字符，除$、倒引号``和转义字符\外,均作为普通字符对待。（√）</p>
 </li>
-<li><p>vi命令模式中(是光标所在位置到该句子的第一个字母。( √ )</p>
+<li><p>set命令显示所有的环境变量。（×）</p>
 </li>
-<li><p>vi中不可以使用page up或page down进行上下翻页。( × )</p>
+<li><p>环境变量SHELL的作用是显示当前用户使用的shell版本。（√）</p>
 </li>
 </ol>
-<p>二、单项选择题</p>
+<p><strong>二、</strong>  <strong>单项选择题</strong></p>
 <ol>
-<li><p>下列不属于vi工作模式的是（B）</p>
-<p>A.插入模式   B.替换模式   C.命令模式   D.末行模式</p>
+<li><p>能够将shell程序中的本地变量设置为环境变量的命令是（D）</p>
+<p>A.global  B.public   C.except   D.export</p>
 </li>
-<li><p>能够实现移动到前一个字末尾且忽略标点的vi命令模式命令是（C）</p>
-<p>A.e      B.ge     C.gE     D.E</p>
+<li><p>shell程序中声明数组类变量的方式是（B）</p>
+<p>A.declare -e  B.declare -a  C.declare -i  D.declare -v</p>
 </li>
-<li><p>关于vi命令模式下4j命令描述正确的是（A）</p>
-<p>A.以当前光标位置为基准，光标向下移动四行。<br>B.以当前光标位置为基准，在后面插入4个j字符。<br>C.以当前光标位置为基准，在前面插入4个j字符。<br>D.以当前光标位置为基准，光标向上移动四行。</p>
+<li><p>变量的更改中可以删除左边第一个匹配字符的是（A）</p>
+<p>A.#  B.##  C.%%  D.%</p>
 </li>
 </ol>
-<p>三、不定项选择题</p>
+<p><strong>三、</strong>  <strong>不定项选择题</strong></p>
 <ol>
-<li><p>下列描述正确的是（D）</p>
-<p>A.linux操作系统文本中句子的划分是以空格区分。<br>B.linux操作系统文本中字的划分是以空行区分。<br>C.linux操作系统文本中段落的划分是以.符号划分。<br>D.以上全错误。</p>
+<li><p>shell程序中能够输出数组变量aaa第0位的值的写法有（AC）</p>
+<p>A.echo ${aaa[0]}   </p>
+<p>B.echo $aaa[0]   </p>
+<p>C.echo $aaa  </p>
+<p>D.echo $(aaa)</p>
 </li>
-<li><p>关于vi命令模式中命令G描述正确的是（BC）</p>
-<p>A.该命令可以将光标直接移动到窗口的末尾位置。<br>B.该命令可以将光标直接移动到文件的末尾位置。<br>C.该命令可以将光标移动到文件的任意行，需要在命令前加上数字行号。<br>D.该命令可以将光标移动到文件的开始位置。</p>
-</li>
-</ol>
-<p>四、填空题</p>
-<ol>
-<li>vi插入模式转换命令模式，以及末行模式执行完末行命令转换命令模式分别需要使用键盘的<code>ESC</code>和<code>ESC</code>键。</li>
-</ol>
-<p>五、操作题</p>
-<ol>
-<li><p>将以下vi操作的命令书写出来</p>
-<p>（1） 移动到第 11 行，向右移动 33 个字符。</p>
+<li><p>下列描述正确的是（C）</p>
+<p>A.declare -p是定义shell程序常量的方式。</p>
+<p>B.declare -i定义的数字类型的变量不可以给它赋值字符串。</p>
+<p>C.declare命令定义常量时如果想要赋值必须声明即赋值。</p>
+<p>D.declare -r可以查询当前已经定义的变量的信息。</p>
 </li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">11G</span><br><span class="line">33l</span><br></pre></td></tr></table></figure>
+<p><strong>四、</strong>  <strong>填空题</strong></p>
+<ol>
+<li>shell中能够起到在控制台输入参数功能的命令是 <code>read</code>。</li>
+</ol>
+<p><strong>五、</strong>  <strong>问答题</strong></p>
+<ol>
+<li><p>阐述一下环境变量与本地变量的联系与区别。</p>
+<p>1)环境变量：又称用户变量，类似我们学过的全局变量，在你登陆系统的时候就已经有了相应的系统定义的环境变量了，环境变量对创建它的Shell及其派生出来的子进程都有效。</p>
+<p>2）本地变量，又称Shell变量，包括私有变量以及用户变量，在shell程序内部定义的，其使用范围仅限于所属的shell进程，进程结束后本地变量就无法使用了。</p>
+</li>
+</ol>
 
-<p>（2）   在当前的下一行新增一行，并进入插入模式输入内容”hello world”，输入完退出插入模式。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">o</span><br><span class="line">hello world</span><br><span class="line">ESC</span><br></pre></td></tr></table></figure>
-
-<p>（3）   将光标移动到“hello world”这一行的行尾，然后在后面插入” too”字符，输入完退出插入模式。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A</span><br><span class="line">too</span><br><span class="line">ESC</span><br></pre></td></tr></table></figure>
         </div>
 
         
@@ -199,7 +200,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="http://tianxu.top/20_04_10_01/">http://tianxu.top/20_04_10_01/</a></span>
+                        <span><a href="http://tianxu.top/20_04_17_02/">http://tianxu.top/20_04_17_02/</a></span>
                     </p>
                 
                 
@@ -236,10 +237,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/20_04_10_02/">Linux 之Vi编辑器练习（下）</a>
             
-            
-            <a class="next" rel="next" href="/20_03_08_02/">Linux文件操作上机</a>
+            <a class="next" rel="next" href="/20_04_17_01/">Linux 之Shell程序设计（上）</a>
             
         </section>
 

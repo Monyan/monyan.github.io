@@ -12,7 +12,7 @@
 
 
 
-<title>Linux 之Vi编辑器练习（下） | Tian Xu&#39;s Blog</title>
+<title>Linux 之Shell程序设计（上） | Tian Xu&#39;s Blog</title>
 
 
 
@@ -111,7 +111,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">Linux 之Vi编辑器练习（下）</h1>
+            <h1 class="post-title">Linux 之Shell程序设计（上）</h1>
             
                 <div class="post-meta">
                     
@@ -120,7 +120,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">四月 10, 2020&nbsp;&nbsp;16:30:31</a>
+                        Date: <a href="#">四月 17, 2020&nbsp;&nbsp;11:36:06</a>
                         </span>
                     
                     
@@ -136,58 +136,50 @@
         </header>
 
         <div class="post-content">
-            <p><strong>J-Linux&amp;Shell-W8</strong> <strong>Vi</strong>  <strong>（下）</strong></p>
-<p>一、判断题</p>
+            <p><strong>J-Linux&amp;Shell-W10</strong> <strong>Shell程序设计（上）</strong></p>
+<p><strong>一、</strong>  <strong>判断题</strong></p>
 <ol>
-<li><p>vi命令模式中yy命令的作用为复制当前行到内存缓冲区。( √ )</p>
+<li><p>Shell程序是编译类编程语言。（×）</p>
 </li>
-<li><p>vi命令模式中D命令的作用为删除文件的最后一行。( × )</p>
+<li><p>现在的Linux操作系统中默认安装的shell版本是csh。（×）</p>
 </li>
-<li><p>vi末行模式中:r 文件1 的写法的作用是读取文件1的内容并存储到当前文件。( √ )</p>
+<li><p>通过/etc/shells文件查看系统中已经安装的shell。（√）</p>
 </li>
-<li><p>vi末行模式查找匹配项时，n代表向下依次查询匹配项。( × )</p>
+<li><p>$nnn在shell里为定义一个变量nnn的作用。（×）</p>
 </li>
 </ol>
-<p>二、单项选择题</p>
+<p><strong>二、</strong>  <strong>单项选择题</strong></p>
 <ol>
-<li><p>下列vi命令模式中的命令能够起到直接删除光标前面字符的是：( B ) </p>
-<p>A.x   B.X   C.S   D.s</p>
+<li><p>Shell程序的注释符为（B）</p>
+<p> A.%  B.#   C.@   D.！</p>
 </li>
-<li><p>有关vi的命令模式的dd命令描述正确的是：( A )</p>
-<p>A.删除光标所在的行</p>
-<p>B.删除文件开头的行</p>
-<p>C.删除文件末尾的行</p>
-<p>D.删除光标所在的行并进入插入模式</p>
+<li><p>Shell变量的定义与赋值格式为（D）</p>
+<p> A.变量名=$值  B. $变量名=值  C.$变量名=$值  D.变量名=值</p>
 </li>
-<li><p>vi末行模式的字符串检索中，哪一个可以起到向上重复查找第一个匹配项的作用。( A )</p>
-<p>A.?</p>
-<p>B./</p>
-<p>C.n</p>
-<p>D.N</p>
+<li><p>能够起到在shell程序里将程序内容中包含的命令的结果直接输出使用的符号是（C）</p>
+<p>A.“”  B.‘’  C.``  D.()</p>
 </li>
 </ol>
-<p>三、不定项选择题</p>
+<p><strong>三、</strong>  <strong>不定项选择题</strong></p>
 <ol>
-<li><p>下列vi命令模式中的命令的作用是删除光标所在的行：(BD)</p>
-<p>A.s  B.S   C.C   D.cc</p>
+<li><p>下列属于Shell常见版本的是（ABCD）</p>
+<p>A.bash   B.csh   C.ksh  D.ash</p>
 </li>
-<li><p>下列vi末行模式的命令中能够包含退出作用的命令有（ACD）</p>
-<p>A.:wq!  B.:Q!  C.:wq  D.q</p>
+<li><p>下列执行shell脚本的方式中，正确的是（AD）</p>
+<p>A. 对应解释器 脚本名   </p>
+<p>B. 脚本名   </p>
+<p>C. ./脚本名   </p>
+<p>D. 在shell脚本有运行权限的前提下，使用./脚本名</p>
 </li>
 </ol>
-<p>四、填空题</p>
+<p><strong>四、</strong>  <strong>填空题</strong></p>
 <ol>
-<li><p>在vi中显示行号的末行模式的命令是<code>set number</code>。</p>
-</li>
-<li><p>在vi中查询出某文件50至60行中出现的root，并将其全部修改为ROOT的末行模式命令是 <code>50,60s/root/ROOT/g</code>。</p>
-</li>
+<li>使用bash shell版本书写shell脚本时，第一行声明应该写为<code>#!/bin/bash</code>。</li>
 </ol>
-<p>五、问答题</p>
+<p><strong>五、</strong>  <strong>操作题</strong></p>
 <ol>
-<li><p>简要描述一下vi三种工作模式各自的功能以及他们之间的切换方式。</p>
-<p>1） 命令模式：启动vi后进入的工作模式就是命令模式，并可转换为插入模式和末行模式。在命令模式下，从键盘上输入的任何字符都被当作编辑命令来解释，而不会在屏幕上显示。如果输入的字符是合法的vi命令，则vi就会完成相应的动作;否则vi会响铃警告。</p>
-<p>2） 插入模式：在命令模式下输入I i,A a,O o进入插入模式，输入的任何字符都被vi当作文件内容显示在屏幕上，按ESC退出，进入命令模式。</p>
-<p>3） 末行模式：在命令模式下，按“：”键进入末行模式，此时vi会在屏幕的底部显示“：”符号作为末行模式的提示符，等待用户输入相关命令。命令执行完毕后，vi自动回到命令模式。</p>
+<li><p>编写一个shell脚本，内含两个变量x和y，分别给x和y赋值12和5，请一次性打印出两个数字加减乘除的执行结果。</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">\<span class="comment">#!/bin/bash</span></span><br><span class="line">x=12</span><br><span class="line">y=5</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> `<span class="variable">$x</span> + <span class="variable">$y</span>`</span><br><span class="line"><span class="built_in">echo</span> `<span class="variable">$x</span> - <span class="variable">$y</span>`</span><br><span class="line"><span class="built_in">echo</span> `<span class="variable">$x</span> \* <span class="variable">$y</span>`</span><br><span class="line"><span class="built_in">echo</span> `<span class="variable">$x</span> / <span class="variable">$y</span>`</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 
@@ -204,7 +196,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="http://tianxu.top/20-04-10-02/">http://tianxu.top/20-04-10-02/</a></span>
+                        <span><a href="http://tianxu.top/20_04_17_01/">http://tianxu.top/20_04_17_01/</a></span>
                     </p>
                 
                 
@@ -241,8 +233,10 @@
         </section>
         <section class="post-nav">
             
+                <a class="prev" rel="prev" href="/20_04_17_02/">article</a>
             
-            <a class="next" rel="next" href="/20_04_10_01/">Linux 之Vi编辑器练习（上）</a>
+            
+            <a class="next" rel="next" href="/20_04_10_02/">Linux 之Vi编辑器练习（下）</a>
             
         </section>
 

@@ -12,7 +12,7 @@
 
 
 
-<title>Linux 之Vi编辑器练习（上） | Tian Xu&#39;s Blog</title>
+<title>Linux 之Vi编辑器练习（下） | Tian Xu&#39;s Blog</title>
 
 
 
@@ -111,7 +111,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">Linux 之Vi编辑器练习（上）</h1>
+            <h1 class="post-title">Linux 之Vi编辑器练习（下）</h1>
             
                 <div class="post-meta">
                     
@@ -120,7 +120,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">四月 10, 2020&nbsp;&nbsp;16:27:31</a>
+                        Date: <a href="#">四月 10, 2020&nbsp;&nbsp;16:30:31</a>
                         </span>
                     
                     
@@ -136,56 +136,61 @@
         </header>
 
         <div class="post-content">
-            <p><strong>J-Linux&amp;Shell-W7</strong>  <strong>Vi</strong>  <strong>（上）</strong></p>
+            <p><strong>J-Linux&amp;Shell-W8</strong> <strong>Vi</strong>  <strong>（下）</strong></p>
 <p>一、判断题</p>
 <ol>
-<li><p>插入模式不是vi的工作模式之一。( × )</p>
+<li><p>vi命令模式中yy命令的作用为复制当前行到内存缓冲区。( √ )</p>
 </li>
-<li><p>vi命令模式中a是从光标所在位置后面开始新增内容。( √ )</p>
+<li><p>vi命令模式中D命令的作用为删除文件的最后一行。( × )</p>
 </li>
-<li><p>vi命令模式中(是光标所在位置到该句子的第一个字母。( √ )</p>
+<li><p>vi末行模式中:r 文件1 的写法的作用是读取文件1的内容并存储到当前文件。( √ )</p>
 </li>
-<li><p>vi中不可以使用page up或page down进行上下翻页。( × )</p>
+<li><p>vi末行模式查找匹配项时，n代表向下依次查询匹配项。( × )</p>
 </li>
 </ol>
 <p>二、单项选择题</p>
 <ol>
-<li><p>下列不属于vi工作模式的是（B）</p>
-<p>A.插入模式   B.替换模式   C.命令模式   D.末行模式</p>
+<li><p>下列vi命令模式中的命令能够起到直接删除光标前面字符的是：( B ) </p>
+<p>A.x   B.X   C.S   D.s</p>
 </li>
-<li><p>能够实现移动到前一个字末尾且忽略标点的vi命令模式命令是（C）</p>
-<p>A.e      B.ge     C.gE     D.E</p>
+<li><p>有关vi的命令模式的dd命令描述正确的是：( A )</p>
+<p>A.删除光标所在的行</p>
+<p>B.删除文件开头的行</p>
+<p>C.删除文件末尾的行</p>
+<p>D.删除光标所在的行并进入插入模式</p>
 </li>
-<li><p>关于vi命令模式下4j命令描述正确的是（A）</p>
-<p>A.以当前光标位置为基准，光标向下移动四行。<br>B.以当前光标位置为基准，在后面插入4个j字符。<br>C.以当前光标位置为基准，在前面插入4个j字符。<br>D.以当前光标位置为基准，光标向上移动四行。</p>
+<li><p>vi末行模式的字符串检索中，哪一个可以起到向上重复查找第一个匹配项的作用。( A )</p>
+<p>A.?</p>
+<p>B./</p>
+<p>C.n</p>
+<p>D.N</p>
 </li>
 </ol>
 <p>三、不定项选择题</p>
 <ol>
-<li><p>下列描述正确的是（D）</p>
-<p>A.linux操作系统文本中句子的划分是以空格区分。<br>B.linux操作系统文本中字的划分是以空行区分。<br>C.linux操作系统文本中段落的划分是以.符号划分。<br>D.以上全错误。</p>
+<li><p>下列vi命令模式中的命令的作用是删除光标所在的行：(BD)</p>
+<p>A.s  B.S   C.C   D.cc</p>
 </li>
-<li><p>关于vi命令模式中命令G描述正确的是（BC）</p>
-<p>A.该命令可以将光标直接移动到窗口的末尾位置。<br>B.该命令可以将光标直接移动到文件的末尾位置。<br>C.该命令可以将光标移动到文件的任意行，需要在命令前加上数字行号。<br>D.该命令可以将光标移动到文件的开始位置。</p>
+<li><p>下列vi末行模式的命令中能够包含退出作用的命令有（ACD）</p>
+<p>A.:wq!  B.:Q!  C.:wq  D.q</p>
 </li>
 </ol>
 <p>四、填空题</p>
 <ol>
-<li>vi插入模式转换命令模式，以及末行模式执行完末行命令转换命令模式分别需要使用键盘的<code>ESC</code>和<code>ESC</code>键。</li>
-</ol>
-<p>五、操作题</p>
-<ol>
-<li><p>将以下vi操作的命令书写出来</p>
-<p>（1） 移动到第 11 行，向右移动 33 个字符。</p>
+<li><p>在vi中显示行号的末行模式的命令是<code>set number</code>。</p>
+</li>
+<li><p>在vi中查询出某文件50至60行中出现的root，并将其全部修改为ROOT的末行模式命令是 <code>50,60s/root/ROOT/g</code>。</p>
 </li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">11G</span><br><span class="line">33l</span><br></pre></td></tr></table></figure>
+<p>五、问答题</p>
+<ol>
+<li><p>简要描述一下vi三种工作模式各自的功能以及他们之间的切换方式。</p>
+<p>1） 命令模式：启动vi后进入的工作模式就是命令模式，并可转换为插入模式和末行模式。在命令模式下，从键盘上输入的任何字符都被当作编辑命令来解释，而不会在屏幕上显示。如果输入的字符是合法的vi命令，则vi就会完成相应的动作;否则vi会响铃警告。</p>
+<p>2） 插入模式：在命令模式下输入I i,A a,O o进入插入模式，输入的任何字符都被vi当作文件内容显示在屏幕上，按ESC退出，进入命令模式。</p>
+<p>3） 末行模式：在命令模式下，按“：”键进入末行模式，此时vi会在屏幕的底部显示“：”符号作为末行模式的提示符，等待用户输入相关命令。命令执行完毕后，vi自动回到命令模式。</p>
+</li>
+</ol>
 
-<p>（2）   在当前的下一行新增一行，并进入插入模式输入内容”hello world”，输入完退出插入模式。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">o</span><br><span class="line">hello world</span><br><span class="line">ESC</span><br></pre></td></tr></table></figure>
-
-<p>（3）   将光标移动到“hello world”这一行的行尾，然后在后面插入” too”字符，输入完退出插入模式。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A</span><br><span class="line">too</span><br><span class="line">ESC</span><br></pre></td></tr></table></figure>
         </div>
 
         
@@ -199,7 +204,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="http://tianxu.top/20_04_10_01/">http://tianxu.top/20_04_10_01/</a></span>
+                        <span><a href="http://tianxu.top/20_04_10_02/">http://tianxu.top/20_04_10_02/</a></span>
                     </p>
                 
                 
@@ -236,10 +241,10 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/20_04_10_02/">Linux 之Vi编辑器练习（下）</a>
+                <a class="prev" rel="prev" href="/20_04_17_01/">Linux 之Shell程序设计（上）</a>
             
             
-            <a class="next" rel="next" href="/20_03_08_02/">Linux文件操作上机</a>
+            <a class="next" rel="next" href="/20_04_10_01/">Linux 之Vi编辑器练习（上）</a>
             
         </section>
 
