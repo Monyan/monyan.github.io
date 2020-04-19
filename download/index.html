@@ -12,7 +12,7 @@
 
 
 
-<title>Linux 之Shell程序设计（中） | Tian Xu&#39;s Blog</title>
+<title>download | Tian Xu&#39;s Blog</title>
 
 
 
@@ -107,11 +107,73 @@
             <div class="container">
     
     
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
 
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">Linux 之Shell程序设计（中）</h1>
+            <h1 class="post-title">download</h1>
             
                 <div class="post-meta">
                     
@@ -120,14 +182,14 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">四月 17, 2020&nbsp;&nbsp;11:39:24</a>
+                        Date: <a href="#">四月 19, 2020&nbsp;&nbsp;23:09:15</a>
                         </span>
                     
                     
                         <span class="post-category">
                     Category:
                             
-                                <a href="/categories/Linux/">Linux</a>
+                                <a href="/categories/Download/">Download</a>
                             
                         </span>
                     
@@ -136,56 +198,9 @@
         </header>
 
         <div class="post-content">
-            <p><strong>J-Linux&amp;Shell-W11</strong> <strong>Shell程序设计（中）</strong></p>
-<p><strong>一、</strong>  <strong>判断题</strong></p>
-<ol>
-<li><p>Shell程序中字符串的连接可以直接连接。（√）</p>
-</li>
-<li><p>有双引号扩起来的字符，除$、倒引号``和转义字符\外,均作为普通字符对待。（√）</p>
-</li>
-<li><p>set命令显示所有的环境变量。（×）</p>
-</li>
-<li><p>环境变量SHELL的作用是显示当前用户使用的shell版本。（√）</p>
-</li>
-</ol>
-<p><strong>二、</strong>  <strong>单项选择题</strong></p>
-<ol>
-<li><p>能够将shell程序中的本地变量设置为环境变量的命令是（D）</p>
-<p>A.global  B.public   C.except   D.export</p>
-</li>
-<li><p>shell程序中声明数组类变量的方式是（B）</p>
-<p>A.declare -e  B.declare -a  C.declare -i  D.declare -v</p>
-</li>
-<li><p>变量的更改中可以删除左边第一个匹配字符的是（A）</p>
-<p>A.#  B.##  C.%%  D.%</p>
-</li>
-</ol>
-<p><strong>三、</strong>  <strong>不定项选择题</strong></p>
-<ol>
-<li><p>shell程序中能够输出数组变量aaa第0位的值的写法有（AC）</p>
-<p>A.echo ${aaa[0]}   </p>
-<p>B.echo $aaa[0]   </p>
-<p>C.echo $aaa  </p>
-<p>D.echo $(aaa)</p>
-</li>
-<li><p>下列描述正确的是（C）</p>
-<p>A.declare -p是定义shell程序常量的方式。</p>
-<p>B.declare -i定义的数字类型的变量不可以给它赋值字符串。</p>
-<p>C.declare命令定义常量时如果想要赋值必须声明即赋值。</p>
-<p>D.declare -r可以查询当前已经定义的变量的信息。</p>
-</li>
-</ol>
-<p><strong>四、</strong>  <strong>填空题</strong></p>
-<ol>
-<li>shell中能够起到在控制台输入参数功能的命令是 <code>read</code>。</li>
-</ol>
-<p><strong>五、</strong>  <strong>问答题</strong></p>
-<ol>
-<li><p>阐述一下环境变量与本地变量的联系与区别。</p>
-<p>1)环境变量：又称用户变量，类似我们学过的全局变量，在你登陆系统的时候就已经有了相应的系统定义的环境变量了，环境变量对创建它的Shell及其派生出来的子进程都有效。</p>
-<p>2）本地变量，又称Shell变量，包括私有变量以及用户变量，在shell程序内部定义的，其使用范围仅限于所属的shell进程，进程结束后本地变量就无法使用了。</p>
-</li>
-</ol>
+            <h5 id="Uninstall-Tool"><a href="#Uninstall-Tool" class="headerlink" title="Uninstall Tool"></a>Uninstall Tool</h5><p><a href="链接:https://pan.baidu.com/s/1d_MCpool7c4RqpYYg8N1JQ">点击下载</a>（提取码: a73e）</p>
+<h5 id="Bandzip-v6-x"><a href="#Bandzip-v6-x" class="headerlink" title="Bandzip v6.x"></a>Bandzip v6.x</h5><p><a href="https://dl.bandisoft.com/bandizip.old/BANDIZIP6-SETUP.EXE" target="_blank" rel="noopener">点击下载</a></p>
+<h5 id="Bandzip-v7-0"><a href="#Bandzip-v7-0" class="headerlink" title="Bandzip v7.0"></a>Bandzip v7.0</h5><p><a href="https://dl.bandisoft.com/bandizip.online/BANDIZIP-SETUP-ONLINE.EXE?1587309383" target="_blank" rel="noopener">点击下载</a></p>
 
         </div>
 
@@ -200,7 +215,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="http://tianxu.top/20_04_17_02/">http://tianxu.top/20_04_17_02/</a></span>
+                        <span><a href="http://tianxu.top/download/">http://tianxu.top/download/</a></span>
                     </p>
                 
                 
@@ -224,7 +239,7 @@
                 <span class="tag">
                     
                     
-                        <a href="/tags/Linux%E4%BD%9C%E4%B8%9A/"># Linux作业</a>
+                        <a href="/tags/Ddownload/"># Ddownload</a>
                     
                         
                 </span>
@@ -237,10 +252,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/download/">download</a>
             
-            
-            <a class="next" rel="next" href="/20_04_17_01/">Linux 之Shell程序设计（上）</a>
+            <a class="next" rel="next" href="/20_04_17_02/">Linux 之Shell程序设计（中）</a>
             
         </section>
 
