@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Tian Xu">
+
+
+
+
+
+<title>Linux文件操作上机 | Tian Xu&#39;s Blog</title>
+
+
+
+    <link rel="icon" href="/favicon_1.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Tian Xu&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Tian Xu&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Linux文件操作上机</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Tian Xu</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">三月 28, 2020&nbsp;&nbsp;9:49:14</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Linux/">Linux</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p><strong>O-Linux&amp;Shell-W5</strong></p>
+<p><strong>PS:</strong> <strong>本次作业难度比较大，设计的命令较多</strong></p>
+<p><strong>step1</strong> 使用root用户在根目录下查找一个叫sudoers文件的具体路径，以备后面使用。</p>
+<p><strong>step2</strong> 使用root用户对比使用四种文档查看命令查看/etc/sudoers文件，并且查询到root权限白名单的设置位置。请问用more、less、head和tail中的哪一个命令能够实现查询特定字符串的作用，请理解和说明more、less、head和tail的区别。</p>
+<p><strong>step3</strong> 使用root用户将sunkangkang用户（如无此用户请新建）列入sudo白名单。</p>
+<p><strong>step4</strong> 分别使用liulinlin（如无此用户请新建）和wangcuncun（如无此用户请新建）用户在自己用户的主目录的.bashrc文件中增加一条命令别名的内容，其中两个用户都是对cat命令命名，命令别名分别设置为catliu、catwang。</p>
+<p><strong>step5</strong> 使用sunkangkang账户直接将liulinlin、wangcuncun各自主目录下的.bashrc文件复制到/tmp目录下，并且文件名分别设定为liulinlin、wangcuncun。</p>
+<p><strong>step6</strong>  使用sunkangkang账户直接将liulinlin和wangcuncun文件的所有者更换为sunkangkang。</p>
+<p><strong>step7</strong> <strong>：</strong>使用sunkangkang用户查看liulinlin和wangcuncun文件中的内容，并将两个文件中内容不同的部分输出为另一个新文件bashrc_diff。comm和diff在这里选取哪个命令使用，为什么？</p>
+<p><strong>step8</strong> 使用sunkangkang用户将liulinlin、wangcuncun文件中有关别名的内容提取出来依次写入liulinlin_alias和wangcuncun_alias文件中。</p>
+<p><strong>step9</strong> 使用sunkangkang用户新建一个文件sunkangkang_alias，将liulinlin_alias和wangcuncun_alias文件里的内容依次合并入sunkangkang_alias文件中。请理解说明一下符号&gt;和&gt;&gt;的区别与联系。</p>
+<p><strong>step10</strong> 使用sunkangkang用户将sunkangkang_alias文件进行排序并将结果输出到sundakang文件中。</p>
+<p><strong>step11</strong> 使用sunkangkang用户把sunkangkang文件里的文件内容合并到自己主目录的.bashrc文件当中，去除重复的行，并重启系统。</p>
+<p><strong>step12</strong> 使用sunkangkang用户分别使用catliu和catwang别名对sunkangkang主目录里的.bashrc文件进行查看。请问是否可以操作成功，为什么？</p>
+<p> <strong>写在解析之前的话</strong><br> 为了更好的管理Linux文章，我将会在我的个人公众号同步更新关于Linux的知识，也是为了期末复习的时候，方便寻找前期做过的题目，附上我的公众号（有矿真好 ID:youkip）</p>
+<p> <strong>Step1:</strong><br> 用root用户在根目录下操作，所以我们要先切换到根目录下，用到 <code>cd /</code> ，然后再查找名为sudoers的文件路径，这时用到查找命令 <code>find [路径] [选项]</code> ， 因为sudoers文件在当前目录，我们学过当前目录用<code>.</code> 来表示，指定名称的命令选项是<code>-name</code> ,命令如下：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /</span><br><span class="line">find . -name <span class="string">'sudoers'</span></span><br></pre></td></tr></table></figure>
+<p>  <strong>Step2:</strong><br>  用<code>more less head tail</code> 来查看文件</p>
+<ol>
+<li>more 是我们最常用的工具之一，最常用的就是显示输出的内容，然后根据窗口的大小进行分页显示，然后还能提示文件的百分比。</li>
+<li>less可以看作more的plus版本，还支持回车按行，空格翻页的效果，主要区别是less与more的算法不同。</li>
+<li>head用于显示前十行</li>
+<li>tail 用于显示后十行<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">more /etc/sudoers</span><br><span class="line">less /etc/sudoers</span><br><span class="line">head /etc/sudoers</span><br><span class="line">tail /etc/sudoers</span><br></pre></td></tr></table></figure>
+这一步不确定性较大🤔</li>
+</ol>
+<p>  <strong>Step3:</strong><br>  添加sunkangkang用户，并且添加到root白名单，新建用户和添加白名单我们已经讲过：<br>  <a href="https://blog.csdn.net/tianxujituan/article/details/104665256" target="_blank" rel="noopener">https://blog.csdn.net/tianxujituan/article/details/104665256</a><br>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">useradd sunkangang</span><br><span class="line">passwd sunkangkang <span class="comment">#在这里我建议建用户同时设置密码</span></span><br><span class="line"><span class="comment">#输入你合适的密码之后</span></span><br><span class="line">vi /etc/sudoers</span><br></pre></td></tr></table></figure><br>  在指定的位置添加上白名单，保存并退出<code>:wq</code></p>
+<p> <strong>Step4:</strong><br> 同样的新建两个用户，和第3步一样，然后分别切换到两个用户中，修改命令别名：<br> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">su [username]</span><br><span class="line">vi .bashrc</span><br><span class="line"><span class="comment">#跳转到文件中，按i进入编辑模式</span></span><br><span class="line"><span class="comment">#添加</span></span><br><span class="line"><span class="built_in">alias</span> catliu=<span class="string">'cat'</span> <span class="comment">#此处有无引号没关系</span></span><br><span class="line"><span class="comment">#在另一个用户中输入alias catwang='cat'即可，步骤一样</span></span><br></pre></td></tr></table></figure><br>  <strong>Step5:</strong><br>  复制文件到指定目录并重命名我们也讲过<code>cp [源文件路径] [目标文件目录]</code>命令：（值得注意的是，在这里我们是跨用户复制，要用到sudo高级权限）  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo cp /home/liulinlin/.bashrc /tmp/liulinlin</span><br><span class="line">sudo cp /home/wangcuncun/.bashrc /tmp/wangcuncun</span><br></pre></td></tr></table></figure>
+<p>  <strong>Step6:</strong><br>  这里涉及到一个更改权限的命令<code>chown</code>:<br> ** 一般来说，这个指令只有是由系统管理者(root)所使用，一般使用者没有权限可以改变别人的文件拥有者，也没有权限把自己的文件拥有者改设为别人。只有系统管理者(root)才有这样的权限。**<br><strong>使用权限 : root</strong><br>所以这里依然要用sudo</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;语法&lt;&lt;</span><br><span class="line">chown [选项] [用户user][:组group] [文件路径]</span><br></pre></td></tr></table></figure>
+<p><strong>我们以下的操作目录是在/tmp下</strong><br>所以：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo chown sunkangkang liulinlin</span><br><span class="line">sudo chown sunkangkang wangcuncun</span><br></pre></td></tr></table></figure>
+<p>不放心的可以<code>ls -l</code>查看一下。</p>
+<p>  <strong>Step7:</strong><br>  查看文件我们在这里用<code>cat</code><br>  比较两个文件的命令有<code>diff</code>和<code>comm</code><br><strong>diff 是直接比较，给出两文件不同的内容</strong><br> <strong>comm是排序后比较</strong><br> 输入到新的文件用输出重定向<code>&gt;</code>或<code>&gt;&gt;</code><br> &gt; 直接重定向到文件，覆盖原有的内容<br> &gt;&gt; 从最后一行写入到文件，保留原来的内容</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cat liulinlin</span><br><span class="line">cat wangcuncun</span><br><span class="line">diff liulinlin wangcuncun &gt;&gt; bashrc_diff</span><br><span class="line"><span class="comment">#此处也可以用 &gt; 因为bashrc_diff 是个新的文件</span></span><br><span class="line">cat bashrc_diff</span><br><span class="line"><span class="comment">#可以看到文件的内容</span></span><br></pre></td></tr></table></figure>
+
+<p>  <strong>Step8:</strong><br>  提取别名并写入到新文件中，提取用到命令<code>grep</code><br> <code>grep [关键字] [文件路径]</code><br>  写入就是输出重定向<code>&gt;</code>或<code>&gt;&gt;</code>，我们当时设置的别名是catliu和catwang，所以提取cat即可：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">grep cat liulinlin &gt; liulinlin_alias</span><br><span class="line">grep cat wancuncun &gt; wangcuncun_alias</span><br></pre></td></tr></table></figure>
+<p> <strong>Step9:</strong><br>  新建文件用<code>touch</code><br>  依次合并到我们建好的文件中：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat liulinlin_alias &gt;&gt; sunkangkang_alias</span><br><span class="line">cat wangcuncun_alias &gt;&gt; sunkangkang_alias</span><br></pre></td></tr></table></figure>
+<p> <strong>Step10:</strong><br> 排序并写入新的文件，对文件内容排序用<code>sort</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sort sunkangkang_alias &gt; sundakang</span><br></pre></td></tr></table></figure>
+<p> <strong>Step11:</strong><br> 将排序好的文件合并到主目录下的.bashrc，所以我们将目录切换到主目录<code>cd</code> 排序好的文件在/tmp/sundakang ：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /tmp/sundakang &gt;&gt; .bashrc</span><br></pre></td></tr></table></figure>
+<p>重启reboot</p>
+<p> <strong>Step12:</strong><br> 重启之后</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">catliu .bashrc</span><br><span class="line">catwang .bashrc</span><br></pre></td></tr></table></figure>
+<p>结果一目了然～</p>
+<p>在这几次操作中都涉及到了目录的问题，我将会在公众号写一篇针对目录的文章。</p>
+<p>一顿操作猛如虎之后，你是不是爱上这个无情的Linux了？</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Tian Xu</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://tianxu.top/20_03_08_02/">http://tianxu.top/20_03_08_02/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2020 <a href="http://www.tianxu.top" target="_blank" rel="noopener">Chic-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Do you believe in <strong>Design</strong>?</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Linux%E4%BD%9C%E4%B8%9A/"># Linux作业</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/20_04_10_01/">Linux 之Vi编辑器练习（上）</a>
+            
+            
+            <a class="next" rel="next" href="/20_03_28_01/">Linux系统的文件操作</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Tian Xu | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>

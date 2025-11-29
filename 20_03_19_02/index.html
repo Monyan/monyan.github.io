@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Tian Xu">
+
+
+
+
+
+<title>Linux文件与目录类常用命令 | Tian Xu&#39;s Blog</title>
+
+
+
+    <link rel="icon" href="/favicon_1.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Tian Xu&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Tian Xu&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Linux文件与目录类常用命令</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Tian Xu</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">三月 19, 2020&nbsp;&nbsp;13:50:20</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Linux/">Linux</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p><strong>J-Linux&amp;Shell-W4</strong></p>
+<p>Linux文件与目录类常用命令（共10分）</p>
+<p><strong>一、</strong>  <strong>判断题（共4题，每题0.25分）</strong></p>
+<ol>
+<li><p>mv为移动对象的命令。（√）</p>
+</li>
+<li><p>ln为复制对象的命令。（×）</p>
+<p><code>复制的命令为：cp</code></p>
+</li>
+<li><p>ls-a可以起到查询目录显示隐藏文件的作用。（×）</p>
+<p><code>注意命令和 [选项]之间要有空格</code></p>
+</li>
+<li><p>../etc路径为相对路径。（√）</p>
+</li>
+</ol>
+<p><strong>二、</strong>  <strong>单项选择题（共3题，每题0.5分）</strong></p>
+<ol>
+<li><p>expr 2+5命令的运行结果是（B）</p>
+<p>A.报错，无法执行   B.2+5   C.7   D.25</p>
+<p><code>如果输入expr 2 + 5 结果就是7 也是空格的问题</code></p>
+</li>
+<li><p>创建符号链接的方式是（D）</p>
+<p>A.ls -s  B.ls  C.ln  D.ln -s</p>
+</li>
+<li><p>能够查看当前工作区的完整绝对路径的命令是（B）</p>
+<p> A.ls  B.pwd  C.path  D.cd</p>
+</li>
+</ol>
+<p><strong>三、</strong>  <strong>不定项选择题（共2题，每题1分）</strong></p>
+<ol>
+<li><p>能够起到对源文件进行改名的命令有（B）</p>
+<p>A.cp   B.mv   C.ls   D.rm</p>
+</li>
+<li><p>关于rm-rf命令的说法正确的是（D）</p>
+<p>A.可以删除非空目录</p>
+<p>B.在有权限的前提下可以删除非空目录</p>
+<p>C.递归的删除目录</p>
+<p>D.报错，无法执行</p>
+<p><code>空格！！！！！</code></p>
+</li>
+</ol>
+<p><strong>四、</strong>  <strong>填空题（共3空，每空1分）</strong></p>
+<ol>
+<li><p>linux操作系统中代表本级目录与上级目录的符号分别是 <code>.</code>、<code>..</code>。</p>
+</li>
+<li><p>linux操作系统中的路径，以<code>/</code> 为开头的是绝对路径写法。</p>
+</li>
+</ol>
+<p><strong>五、</strong>  <strong>问答题（共1题，每题2.5分）</strong></p>
+<ol>
+<li><p>简述一下软连接与硬连接的区别与联系。</p>
+<p>硬链接：<br>1）具有相同inode节点号的多个文件是互为硬链接文件<br>2）删除硬链接文件或者删除源文件人任意之一，文件实体并被删除<br>3）只有删除源文件及所用对应的硬链接文件，文件实体才会被删除<br>4）当所用的硬链接文件及文件源文件删除后，在存放的数会占用这个文件的空间，或者磁盘fsck检查的时候，删除的数据也会被系统回收（删除要谨慎需要多测试）<br>5）硬链接文件就是文件的另外一个入口（相当于超时的其前门、后门一样）<br>6）可以通过给文件设置硬链接文件，来防止重要文件被误删<br>7）通过执行命令“ln 源文件 硬链接文件”，即可完成创建硬链接<br>8）硬链接是普通文件可以用rm 命令删除<br>9）对静态文件（没有进程正在调用的文件）来讲，对应硬链接数为0（i_link），文件被删除。</p>
+<p>软链接：</p>
+<p>1）软连接类似Windows的快捷方式（可以通过readliak 查看指向）<br>2）软连接类似一个文件，里面存放的是文件的路径，指向文件实体<br>3）删除文件，软连接文件依然存在，但是无法访问源文件路径<br>4）失效的时候一般是白字红底闪烁提示。<br>5）执行命令“ln -s 源文件 软连接文件”。即可完成软连接的创建<br>6）软连接和源文件是不同类型的文件，也是不同的文件。inode号也是不同<br>7）删除软连接文件可以rm命令</p>
+</li>
+</ol>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Tian Xu</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://tianxu.top/20_03_19_02/">http://tianxu.top/20_03_19_02/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2020 <a href="http://www.tianxu.top" target="_blank" rel="noopener">Chic-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Do you believe in <strong>Design</strong>?</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Linux%E4%BD%9C%E4%B8%9A/"># Linux作业</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/20_03_28_01/">Linux系统的文件操作</a>
+            
+            
+            <a class="next" rel="next" href="/20_03_19/">Linux系统文件与目录基本操作</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Tian Xu | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>

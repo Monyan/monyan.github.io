@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Tian Xu">
+
+
+
+
+
+<title>Linux系统文件与目录基本操作 | Tian Xu&#39;s Blog</title>
+
+
+
+    <link rel="icon" href="/favicon_1.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Tian Xu&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Tian Xu&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Linux系统文件与目录基本操作</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Tian Xu</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">三月 19, 2020&nbsp;&nbsp;11:05:49</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Linux/">Linux</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p><strong>O-Linux&amp;Shell-W4</strong></p>
+<p>Linux系统文件与目录基本操作（共10分）</p>
+<p><strong>一、</strong> <strong>操作题（每题1分，共10分）</strong></p>
+<p>以下练习请使用个人普通用户直接登录系统操作。</p>
+<ol>
+<li><p>使用ls查看当前用户主目录里的情况，将命令与结果截图。</p>
+</li>
+<li><p>在个人用户主目录里一次性创建层级目录，要求三级嵌套目录，目录名使用你们各自心中同班学霸前三名的名字，将命令截图。</p>
+</li>
+<li><p>将工作区切换到上一步的三层嵌套目录的最内层里，将命令截图。</p>
+</li>
+<li><p>在当前位置创建一个自己名字的空文件，将命令截图。</p>
+</li>
+<li><p>使用vi编辑器对这个空文件进行编辑，在文件内任意用英语写一些自我介绍类的文字，并保存退出，将自我介绍文字截图。</p>
+</li>
+<li><p>将自己名字的文件复制到/tmp位置，并将文件名改名为同班与自己关系最好的同学的名字，将命令截图。</p>
+</li>
+<li><p>将自己名字的文件（三层嵌套目录最里面的文件，非复制到/tmp里的文件）创建一个硬链接，名字为自己名字文件名加前缀h_，一个软链接，名字为自己名字文件名加前缀s_,都创建在个人普通用户的主目录里，将命令截图。</p>
+</li>
+<li><p>把工作区切换到个人用户的主目录里，使用rmdir对三层层级目录一次性递归删除，将命令截图，并描述一下是否可以完成，原因是什么。 </p>
+</li>
+<li><p>对于上一步的操作使用什么命令还可以实现这个功能，将命令截图。</p>
+</li>
+<li><p>层级目录删除成功后使用vi查看一下用户主目录中硬链接文件和软连接文件，将结果截图，并说明出现这个情况的原因是什么。</p>
+</li>
+</ol>
+<p><strong>解析步骤</strong><br>以下练习均在普通用户中操作</p>
+<ol>
+<li><p>输入 <code>ls</code> 查看当前用户主目录。</p>
+</li>
+<li><p>创建目录的命令：<code>mkdir</code> 一次性创建加 <code>-p</code> 选项。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p xueba_1/xueba_2/xueba_3</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>切换工作区用到 <code>cd</code>命令。</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> xueba_1/xueba_2/xueba_3</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>创建空文件的命令是 <code>touch</code>。</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch yourname</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li><p>用 <code>vi</code> 命令进入文件编辑，按键盘 <code>i</code> 键开启插入模式，然后按题目要求键入你的自我介绍。完成后按键盘左上角 <code>ESC</code> 推出插入模式，再输入 <code>：wq</code> 保存并退出。</p>
+</li>
+<li><p>复制的命令是<code>cp</code> 用法如下：</p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cp [源文件目录][空格][目标目录]</span><br><span class="line">cp xueba_1/xueba_2/xueba_3/yourname  /tmp/friendname</span><br><span class="line">//以上方式是将文件复制并改名，若不改名采用以下方式</span><br><span class="line">cp xueba_1/xueba_2/xueba_3/yourname  /tmp/</span><br></pre></td></tr></table></figure>
+
+<ol start="7">
+<li>硬链接：<code>ln [源文件目录][空格][目标目录]</code><br>软链接：<code>ln -s [源文件目录][空格][目标目录]</code><br>在创建链接的时候也可以改名字<br>硬链接：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln xueba_1/xueba_2/xueba_3/yourname h_yourname</span><br></pre></td></tr></table></figure>
+
+<p>软链接：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s xueba_1/xueba_2/xueba_3/yourname s_yourname</span><br></pre></td></tr></table></figure>
+
+<ol start="8">
+<li>首先<code>cd</code>回到 用户主目录，删除命令有  <code>rmdir</code>  和  <code>rm -r
+而且要求用</code>rmdir<code>一次性删除三个层级目录，一次性需要加</code>-p`</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rmdir -p xueba_1/xueba_2/xueba_3</span><br></pre></td></tr></table></figure>
+
+<p>我们会发现不能删除，提示<strong>目录非空</strong><br>如果用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rmdir -p xueba_1/xueba_2/xueba_3/yourname</span><br></pre></td></tr></table></figure>
+
+<p>就可以删除</p>
+<ol start="9">
+<li>我们已经提到过另一个删除命令<code>rm -r</code>也可以删除</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -r  xueba_1</span><br></pre></td></tr></table></figure>
+
+<ol start="10">
+<li>此处用<code>vi</code>命令</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vi h_yourname</span><br><span class="line">vi s_yourname</span><br></pre></td></tr></table></figure>
+
+<p>其中硬链接还可以访问文件，软链接已经无法访问文件了，这是因为：<br>1）<strong>硬链接</strong>：A的node节点号与B的node节点号相同，即一个inode节点对应两个不同的文件名，两个文件名指向同一个文件，A和B对文件系统来说是完全平等的。如果删除了其中一个，对另外一个没有影响。<br>2）<strong>软链接</strong>：A的node节点号与B的node节点号不相同，A和B指向的是两个不同的node， A的数据块中存放的是B的路径名（可以根据这个找到B的目录项）。A和B之间是“主从”关系，如果A被删除了，B仍然存在（因为两个是不同的文件），但指向的是一个无效的链接。</p>
+</li>
+</ol>
+<p>最后附上一个讲解硬链接和软链接的文章：<br><a href="https://blog.csdn.net/yangxjsun/article/details/79681229" target="_blank" rel="noopener">https://blog.csdn.net/yangxjsun/article/details/79681229</a></p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Tian Xu</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://tianxu.top/20_03_19/">http://tianxu.top/20_03_19/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2020 <a href="http://www.tianxu.top" target="_blank" rel="noopener">Chic-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Do you believe in <strong>Design</strong>?</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Linux%E4%BD%9C%E4%B8%9A/"># Linux作业</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/20_03_19_02/">Linux文件与目录类常用命令</a>
+            
+            
+            <a class="next" rel="next" href="/20_03_16/">我的第一篇博客</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Tian Xu | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>

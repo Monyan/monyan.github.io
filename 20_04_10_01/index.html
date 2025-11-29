@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Tian Xu">
+
+
+
+
+
+<title>Linux 之Vi编辑器练习（上） | Tian Xu&#39;s Blog</title>
+
+
+
+    <link rel="icon" href="/favicon_1.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Tian Xu&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Tian Xu&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Linux 之Vi编辑器练习（上）</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Tian Xu</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">四月 10, 2020&nbsp;&nbsp;16:27:31</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Linux/">Linux</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p><strong>J-Linux&amp;Shell-W7</strong>  <strong>Vi</strong>  <strong>（上）</strong></p>
+<p>一、判断题</p>
+<ol>
+<li><p>插入模式不是vi的工作模式之一。( × )</p>
+</li>
+<li><p>vi命令模式中a是从光标所在位置后面开始新增内容。( √ )</p>
+</li>
+<li><p>vi命令模式中(是光标所在位置到该句子的第一个字母。( √ )</p>
+</li>
+<li><p>vi中不可以使用page up或page down进行上下翻页。( × )</p>
+</li>
+</ol>
+<p>二、单项选择题</p>
+<ol>
+<li><p>下列不属于vi工作模式的是（B）</p>
+<p>A.插入模式   B.替换模式   C.命令模式   D.末行模式</p>
+</li>
+<li><p>能够实现移动到前一个字末尾且忽略标点的vi命令模式命令是（C）</p>
+<p>A.e      B.ge     C.gE     D.E</p>
+</li>
+<li><p>关于vi命令模式下4j命令描述正确的是（A）</p>
+<p>A.以当前光标位置为基准，光标向下移动四行。<br>B.以当前光标位置为基准，在后面插入4个j字符。<br>C.以当前光标位置为基准，在前面插入4个j字符。<br>D.以当前光标位置为基准，光标向上移动四行。</p>
+</li>
+</ol>
+<p>三、不定项选择题</p>
+<ol>
+<li><p>下列描述正确的是（D）</p>
+<p>A.linux操作系统文本中句子的划分是以空格区分。<br>B.linux操作系统文本中字的划分是以空行区分。<br>C.linux操作系统文本中段落的划分是以.符号划分。<br>D.以上全错误。</p>
+</li>
+<li><p>关于vi命令模式中命令G描述正确的是（BC）</p>
+<p>A.该命令可以将光标直接移动到窗口的末尾位置。<br>B.该命令可以将光标直接移动到文件的末尾位置。<br>C.该命令可以将光标移动到文件的任意行，需要在命令前加上数字行号。<br>D.该命令可以将光标移动到文件的开始位置。</p>
+</li>
+</ol>
+<p>四、填空题</p>
+<ol>
+<li>vi插入模式转换命令模式，以及末行模式执行完末行命令转换命令模式分别需要使用键盘的<code>ESC</code>和<code>ESC</code>键。</li>
+</ol>
+<p>五、操作题</p>
+<ol>
+<li><p>将以下vi操作的命令书写出来</p>
+<p>（1） 移动到第 11 行，向右移动 33 个字符。</p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">11G</span><br><span class="line">33l</span><br></pre></td></tr></table></figure>
+
+<p>（2）   在当前的下一行新增一行，并进入插入模式输入内容”hello world”，输入完退出插入模式。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">o</span><br><span class="line">hello world</span><br><span class="line">ESC</span><br></pre></td></tr></table></figure>
+
+<p>（3）   将光标移动到“hello world”这一行的行尾，然后在后面插入” too”字符，输入完退出插入模式。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A</span><br><span class="line">too</span><br><span class="line">ESC</span><br></pre></td></tr></table></figure>
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Tian Xu</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://tianxu.top/20_04_10_01/">http://tianxu.top/20_04_10_01/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2020 <a href="http://www.tianxu.top" target="_blank" rel="noopener">Chic-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Do you believe in <strong>Design</strong>?</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Linux%E4%BD%9C%E4%B8%9A/"># Linux作业</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/20_04_10_02/">Linux 之Vi编辑器练习（下）</a>
+            
+            
+            <a class="next" rel="next" href="/20_03_08_02/">Linux文件操作上机</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Tian Xu | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>

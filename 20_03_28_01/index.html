@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Tian Xu">
+
+
+
+
+
+<title>Linux系统的文件操作 | Tian Xu&#39;s Blog</title>
+
+
+
+    <link rel="icon" href="/favicon_1.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Tian Xu&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Tian Xu&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Linux系统的文件操作</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Tian Xu</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">三月 28, 2020&nbsp;&nbsp;9:48:57</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Linux/">Linux</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p><strong>J-Linux&amp;Shell-W5</strong></p>
+<p>文件操作（共10分）</p>
+<p>一、 判断题（共4题，每题0.25分）</p>
+<ol>
+<li><p>系统中有一个文件的文件名为aaa.txt，那么这个文件的扩展名为txt。（ × ）</p>
+</li>
+<li><p>假设当前工作区中有个文件的文件名为x11，文件内容也为x11，那么在本工作区使用命令grep -v [0-9] x11无法抓出这一行。（ √ ）</p>
+</li>
+<li><p>file命令是用来展示文件的统计信息的。（ × ）</p>
+</li>
+<li><p>wc命令是用来查询文件类型的。（×）</p>
+</li>
+</ol>
+<p>二、 单项选择题（共3题，每题0.5分）</p>
+<ol>
+<li>linux操作系统的文件名最大长度为（A）</li>
+</ol>
+<p>​       A.2^8-1    B.2^4-1  C.2^16-1   D.2^32-1</p>
+<ol start="2">
+<li>关于more命令，叙述错误的是（D）</li>
+</ol>
+<p>​       A.more可以将长文件内容从头开始依次展示</p>
+<p>​       B.more可以将长文件内容按照屏幕大小分屏展示</p>
+<p>​       C.more一个长文件以后点击空格为翻页点击回车为翻行</p>
+<p>​       D.more命令已经被翻上去的内容不可以回看查询</p>
+<ol start="3">
+<li>下列描述正确的是（D）</li>
+</ol>
+<p>​       A.正则表达式中的与系统通配符的代表的含义一样。</p>
+<p>​       B.[0-9]代表0-9这10个字符</p>
+<p>​       C.{2}代表2出现了2次</p>
+<p>​       D.以上都错误</p>
+<p>三、 不定项选择题（共2题，每题1分）</p>
+<ol>
+<li>下列命令可以独立使用达到查看文件的效果的是（ACD）</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A.vi      B.echo      C.cat      D.more</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>下列命令可以独立使用达到编辑文件的效果的是（A）</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A.vi      B.echo      C.cat      D.more</span><br></pre></td></tr></table></figure>
+
+<p>四、 填空题（共2空，每空0.5分）</p>
+<ol>
+<li><p>系统中能够修改文件修改时间信息的命令与选项的组合是<code>touch -d</code>。</p>
+</li>
+<li><p>linux操作系统可有形式上的<code>文件扩展名</code>，但系统不将其作为区分文件类型的依据，与windows系统不同。</p>
+</li>
+</ol>
+<p>五、 问答题（共1题，4.5分）</p>
+<ol>
+<li>请描述一下cat、more、less、head和tail这几个查看文件命令的区别。</li>
+</ol>
+<ul>
+<li>cat命令连接文件并打印到标准输出设备上，cat经常用来显示文件的内容，用于较小文件。</li>
+</ul>
+<ul>
+<li><p>more命令是一个基于vi编辑器文本过滤器，它以全屏幕的方式按页显示文本文件的内容，具有分屏显示的功能。</p>
+</li>
+<li><p>less命令的作用与more十分相似，都可以用来浏览文字档案的内容，less支持pagedown 和pageup翻行，而且可以实现特定关键字查询。</p>
+</li>
+<li><p>head命令用于显示文件的开头的内容。在默认情况下，head命令显示文件的头10行内容。</p>
+</li>
+<li><p>tail命令用于输入文件中的尾部内容。tail命令默认在屏幕上显示指定文件的末尾10行。可用于动态日志监视。</p>
+</li>
+</ul>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Tian Xu</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://tianxu.top/20_03_28_01/">http://tianxu.top/20_03_28_01/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2020 <a href="http://www.tianxu.top" target="_blank" rel="noopener">Chic-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Do you believe in <strong>Design</strong>?</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Linux%E4%BD%9C%E4%B8%9A/"># Linux作业</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/20_03_08_02/">Linux文件操作上机</a>
+            
+            
+            <a class="next" rel="next" href="/20_03_19_02/">Linux文件与目录类常用命令</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Tian Xu | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>
